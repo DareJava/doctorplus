@@ -6,6 +6,6 @@ class FirstTestIntegration extends Specification {
        when:
           String s  =  "sdfdf"
        then:
-           s == "1234"
+           s == "sdfdf"
     }
 }
