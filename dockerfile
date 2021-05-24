@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine as builder
 
-COPY build/libs/doctorplus.jar ./service.jar
+COPY build/libs/doctor-plus.jar ./service.jar
 RUN java -Djarmode=layertools -jar service.jar extract
 
 
