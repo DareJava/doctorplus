@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./dockerfile
           push: true
-          tags: kulikuliboy/doctor-plus:latest
+          tags: kulikuliboy/doctorplus:latest
 
   checkstyle_job:
     runs-on: ubuntu-latest
