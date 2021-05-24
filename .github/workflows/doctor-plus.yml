@@ -1,9 +1,15 @@
 name: doctor-plus
 on: [push]
 jobs:
+  integration_test:
+    runs-on: ubuntu-latest
+    name: check if integrated properly
+    steps:
+      - name: run int test
+        run: ./gradlew integrationTest
   build_job:
     runs-on: ubuntu-latest
-    needs: checkstyle_job
+    needs: checkstyle_job, integration_test
     name: buildme
     steps:
       - name: Checkout

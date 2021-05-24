@@ -1,12 +1,32 @@
 plugins {
+	id 'groovy'
 	id 'org.springframework.boot' version '2.5.1-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.unbroken-dome.test-sets' version '4.0.0'
+
 	id 'java'
 }
 
 group = 'com.dare.works'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+test {
+	testLogging {
+		events "passed", "skipped", "failed", "standardError"
+	}
+}
+
+testSets {
+	integrationTest
+}
+check.finalizedBy(integrationTest)
+
+integrationTest {
+	testLogging {
+		events "passed", "skipped", "failed", "standardError"
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -17,8 +37,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
 
-test {
-	useJUnitPlatform()
+	testImplementation('org.spockframework:spock-core:1.0-groovy-2.3')
+	testImplementation('org.spockframework:spock-spring:1.0-groovy-2.3')
 }
