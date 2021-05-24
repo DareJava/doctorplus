@@ -1,4 +1,4 @@
-FROM docker.tw.ee/tw-base-java:15.0 as builder
+FROM openjdk:8-jdk-alpine as builder
 
 COPY build/libs/doctorplus.jar ./service.jar
 RUN java -Djarmode=layertools -jar service.jar extract
